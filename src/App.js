@@ -3,7 +3,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      Get Your Jab
+      Get Vaccinated
     </div>
   );
 }
