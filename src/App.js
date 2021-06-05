@@ -1,56 +1,56 @@
 import './App.css';
 import React from 'react';
-import {Component} from 'react';
+import { Component } from 'react';
 import FormComponent from './Component/formComponent'
 import Login from './Component/loginForm'
-class App extends Component{
-  constructor(){
+import { sha256 } from 'js-sha256';
+import axios from 'axios';
+
+class App extends Component {
+  constructor() {
     super();
-    this.state ={
-      txnId : null,
-      token : null,
+    this.state = {
+      txnId: null,
+      token: null,
     };
   }
 
-  getOtp = async (e) =>{
+  getOtp = async (e) => {
     e.preventDefault();
     const mobileNumber = e.target.elements.mobNo.value;
     const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ "mobile":`${mobileNumber}`})
-  };
-  const api_call = await fetch('https://cdn-api.co-vin.in/api/v2/auth/public/generateOTP', requestOptions);
-  const response = await api_call.json();
-  this.setState({txnId:response.txnId});
-  console.log(response, this.state.txnId);
+      mobile: mobileNumber
+    };
+    axios.post('https://cdn-api.co-vin.in/api/v2/auth/public/generateOTP', requestOptions).then(response => {
+      this.setState({ txnId: response.data.txnId });
+    }).catch(err => {
+      console.log(err)
+    });
   }
 
-  login = async (e) =>{
+  login = async (e) => {
     e.preventDefault();
     const otp = e.target.elements.otp.value;
-    const requestOptions = {
-      method: 'POST',   
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ "otp":`${otp}`,
-      "txnId": `${this.state.txnId}`
-    })
-  };
-  const api_call = await fetch('https://cdn-api.co-vin.in/api/v2/auth/public/confirmOTP', requestOptions);
-  const response = await api_call.json();
-  this.setState({token:response.token});
-  console.log(response, this.state.token);
+    const cnfOTPPayload = {
+      otp: sha256(otp),
+      txnId: this.state.txnId
+    };
+    axios.post('https://cdn-api.co-vin.in/api/v2/auth/public/confirmOTP', cnfOTPPayload).then(response => {
+      this.setState({ token: response.token });
+    }).catch(err => {
+      console.log(err)
+    });
   }
-  
-  render(){
-    const {txnId} = this.state;
+
+  render() {
+    const { txnId } = this.state;
     return (
-      <div className="App">{!txnId && 
-      <FormComponent getOtp={this.getOtp}></FormComponent>}  
-      {txnId && <Login login={this.login}></Login>} 
+      <div className="App">
+        {!txnId && <FormComponent getOtp={this.getOtp}></FormComponent>}
+        {txnId && <Login login={this.login}></Login>}
       </div>
     );
   };
- }
+}
 
 export default App;
