@@ -1,10 +1,11 @@
-import './App.css';
-import React from 'react';
-import { Component } from 'react';
-import FormComponent from './Component/formComponent'
-import Login from './Component/loginForm'
-import { sha256 } from 'js-sha256';
-import axios from 'axios';
+import "./App.css";
+import React from "react";
+import { Component } from "react";
+import FormComponent from "./Component/formComponent";
+import Login from "./Component/loginForm";
+import CertificateDownload from "./Component/certificateDownload";
+import { sha256 } from "js-sha256";
+import axios from "axios";
 
 class App extends Component {
   constructor() {
@@ -19,38 +20,79 @@ class App extends Component {
     e.preventDefault();
     const mobileNumber = e.target.elements.mobNo.value;
     const requestOptions = {
-      mobile: mobileNumber
+      mobile: mobileNumber,
     };
-    axios.post('https://cdn-api.co-vin.in/api/v2/auth/public/generateOTP', requestOptions).then(response => {
-      this.setState({ txnId: response.data.txnId });
-    }).catch(err => {
-      console.log(err)
-    });
-  }
+    axios
+      .post(
+        "https://cdn-api.co-vin.in/api/v2/auth/public/generateOTP",
+        requestOptions
+      )
+      .then((response) => {
+        this.setState({ txnId: response.data.txnId });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   login = async (e) => {
     e.preventDefault();
     const otp = e.target.elements.otp.value;
     const cnfOTPPayload = {
       otp: sha256(otp),
-      txnId: this.state.txnId
+      txnId: this.state.txnId,
     };
-    axios.post('https://cdn-api.co-vin.in/api/v2/auth/public/confirmOTP', cnfOTPPayload).then(response => {
-      this.setState({ token: response.token });
-    }).catch(err => {
-      console.log(err)
-    });
-  }
+    axios
+      .post(
+        "https://cdn-api.co-vin.in/api/v2/auth/public/confirmOTP",
+        cnfOTPPayload
+      )
+      .then((response) => {
+        this.setState({ token: response.data.token });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  onDownload = async (e) => {
+    e.preventDefault();
+    const beneficiaryCode = e.target.elements.beneficiaryCode.value;
+    const config = {
+      headers: { Authorization: `Bearer ${this.state.token}` },
+    };
+    axios
+      .get(
+        `https://cdn-api.co-vin.in/api/v2/registration/certificate/public/download?beneficiary_reference_id=${beneficiaryCode}`,
+        config
+      )
+      .then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data], { type: "application/pdf" }));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'file.pdf'); 
+            document.body.appendChild(link);
+            link.click();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   render() {
-    const { txnId } = this.state;
+    const { txnId, token} = this.state;
     return (
       <div className="App">
         {!txnId && <FormComponent getOtp={this.getOtp}></FormComponent>}
         {txnId && <Login login={this.login}></Login>}
+        {token && (
+          <CertificateDownload
+            onDownload={this.onDownload}
+          ></CertificateDownload>
+        )}
       </div>
     );
-  };
+  }
 }
 
 export default App;
