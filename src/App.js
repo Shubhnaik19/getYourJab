@@ -1,10 +1,14 @@
-import "./App.css";
+import "./_App.scss";
 import React from "react";
 import { Component } from "react";
 import FormComponent from "./Component/formComponent";
 import Login from "./Component/loginForm";
 import CertificateDownload from "./Component/certificateDownload";
+import BeneficiaryDetails from "./Component/BeneficiaryDetails";
+import CenterDetails from "./Component/centerDetails";
+import NavBar from "./Component/NavBar"
 import { sha256 } from "js-sha256";
+import './styles/_forms.scss'
 import axios from "axios";
 
 class App extends Component {
@@ -83,6 +87,7 @@ class App extends Component {
     const { txnId, token} = this.state;
     return (
       <div className="App">
+        <NavBar></NavBar>
         {!txnId && <FormComponent getOtp={this.getOtp}></FormComponent>}
         {txnId && <Login login={this.login}></Login>}
         {token && (
@@ -90,6 +95,8 @@ class App extends Component {
             onDownload={this.onDownload}
           ></CertificateDownload>
         )}
+        {token && <BeneficiaryDetails token={token}></BeneficiaryDetails>}
+        <CenterDetails></CenterDetails>
       </div>
     );
   }
