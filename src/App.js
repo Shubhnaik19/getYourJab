@@ -4,6 +4,8 @@ import { Component } from "react";
 import FormComponent from "./Component/formComponent";
 import Login from "./Component/loginForm";
 import CertificateDownload from "./Component/certificateDownload";
+import BeneficiaryDetails from "./Component/BeneficiaryDetails";
+import CenterDetails from "./Component/centerDetails";
 import { sha256 } from "js-sha256";
 import axios from "axios";
 
@@ -90,6 +92,9 @@ class App extends Component {
             onDownload={this.onDownload}
           ></CertificateDownload>
         )}
+        {token && <BeneficiaryDetails token={token}></BeneficiaryDetails>}
+        <h1>Get center details near you:</h1>
+        <CenterDetails></CenterDetails>
       </div>
     );
   }
