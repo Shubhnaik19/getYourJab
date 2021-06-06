@@ -1,8 +1,31 @@
 body{
-    margin:10px;
+    margin:5rem;
     background: rgb(6,20,85);
     background: linear-gradient(0deg, rgba(6,20,85,1) 0%, rgba(118,146,186,1) 100%);
     background-repeat: repeat;
     color: white;
     height: 100vh;
+}
+
+h1{
+    font-size: 1.6rem;
+}
+
+@media (max-width:1200px){
+    html {
+        font-size: 100%;
+    }
+}
+
+@media (max-width:900px){
+    html {
+        font-size: 75%;
+    }
+}
+
+
+@media (max-width:600px){
+    html {
+        font-size: 50%;
+    }
 }
