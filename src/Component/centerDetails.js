@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import axios from 'axios';
 import Moment from 'moment';
+import Center from './center';
 
 class ceterDetails extends Component {
     state = { centerDetails : null }
@@ -14,7 +15,7 @@ class ceterDetails extends Component {
            `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pinCode}&date=${dateDMY}`
          )
          .then((response) => {
-           this.setState({centerDetails : JSON.stringify(response.data)})
+           this.setState({centerDetails : response.data.sessions})
          })
          .catch((err) => {
            console.log(err);
@@ -29,9 +30,12 @@ class ceterDetails extends Component {
                     <div className="cityCenter"><input type="text" className="otpForm" name="pincode" placeholder="City Pincode" /></div>
                     <div className="cityCenter"><input type="date" className="otpForm" name="date" placeholder="Enter Date" /></div>
                     <div className="button submit"><button className="otpButton">Serach For Center</button></div>
-                </form>
-                {centerDetails && <div>
-                    {centerDetails}</div>}
+                </form>{
+                  centerDetails &&
+                <div className="centerStyleGrid">
+                    {centerDetails.map(center => (<Center key={center.session_id} center={center}></Center>))}
+                </div>
+    }
             </div>
         );
     }
