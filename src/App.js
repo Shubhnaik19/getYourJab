@@ -1,4 +1,4 @@
-import "./App.css";
+import "./_App.scss";
 import React from "react";
 import { Component } from "react";
 import FormComponent from "./Component/formComponent";
@@ -7,6 +7,7 @@ import CertificateDownload from "./Component/certificateDownload";
 import BeneficiaryDetails from "./Component/BeneficiaryDetails";
 import CenterDetails from "./Component/centerDetails";
 import { sha256 } from "js-sha256";
+import './styles/_forms.scss'
 import axios from "axios";
 
 class App extends Component {
@@ -93,7 +94,6 @@ class App extends Component {
           ></CertificateDownload>
         )}
         {token && <BeneficiaryDetails token={token}></BeneficiaryDetails>}
-        <h1>Get center details near you:</h1>
         <CenterDetails></CenterDetails>
       </div>
     );

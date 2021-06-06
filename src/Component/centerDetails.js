@@ -23,7 +23,8 @@ class ceterDetails extends Component {
     render() {
         const {centerDetails} = this.state;
         return (
-            <div className="container">
+            <div className="formAlignCenter">
+              <h1>Get center details near you:</h1>
                 <form onSubmit={this.getCenterDetails}>
                     <div className="cityCenter"><input type="text" className="otpForm" name="pincode" placeholder="City Pincode" /></div>
                     <div className="cityCenter"><input type="date" className="otpForm" name="date" placeholder="Enter Date" /></div>
