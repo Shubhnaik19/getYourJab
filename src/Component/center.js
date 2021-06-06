@@ -5,7 +5,7 @@ class center extends Component {
     state = {  }
     render() {
         return (
-            <div className={centerStyle}>
+            <div className="centerStyle">
                 <h1>Center Name : {this.props.center.name}</h1>
                 <h3>Dose Available :{this.props.center.available_capacity}</h3>
                 {console.log(this.props.center.name)}
@@ -13,10 +13,6 @@ class center extends Component {
         );
     }
 }
-const centerStyle = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    gridGap: '1rem'
-  }
+
 
 export default center;

@@ -30,10 +30,12 @@ class ceterDetails extends Component {
                     <div className="cityCenter"><input type="text" className="otpForm" name="pincode" placeholder="City Pincode" /></div>
                     <div className="cityCenter"><input type="date" className="otpForm" name="date" placeholder="Enter Date" /></div>
                     <div className="button submit"><button className="otpButton">Serach For Center</button></div>
-                </form>
-                <div className="centerStyle">
-                    {centerDetails && centerDetails.map(center => (<Center key={center.session_id} center={center}></Center>))}
+                </form>{
+                  centerDetails &&
+                <div className="centerStyleGrid">
+                    {centerDetails.map(center => (<Center key={center.session_id} center={center}></Center>))}
                 </div>
+    }
             </div>
         );
     }

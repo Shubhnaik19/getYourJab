@@ -1,14 +1,41 @@
+@import './styles/forms';
+
 body{
-    margin:5rem;
     background: rgb(6,20,85);
     background: linear-gradient(0deg, rgba(6,20,85,1) 0%, rgba(118,146,186,1) 100%);
-    background-repeat: repeat;
     color: white;
-    height: 100vh;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 h1{
     font-size: 1.6rem;
+}
+
+.navbar{
+    display:flex;
+    align-items: center;
+    background: rgb(127, 143, 211);
+    background: linear-gradient(0deg, rgb(76, 106, 236) 0%, rgba(118,146,186,1) 100%);
+    height: 2rem;
+    .navbar-item{
+        font-size: 1rem;
+        margin-left: 5rem;
+        // padding-left: 10rem;
+        text-align: center;
+        display:flex;
+        justify-content: center;
+        &:hover{
+            background-color: #2bdddd2c;
+            font-size: 2rem;
+            transform: scale(1);
+            transition: transform .2s, .2s width .2s cubic-bezier(1, -0.16,0 ,1.32);
+        }
+        .link:hover{
+       color: white;
+    }
+    }
 }
 
 @media (max-width:1200px){
