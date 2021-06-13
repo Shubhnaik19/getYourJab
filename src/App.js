@@ -10,6 +10,7 @@ import NavBar from "./Component/NavBar"
 import { sha256 } from "js-sha256";
 import './styles/_forms.scss'
 import axios from "axios";
+import Routes from "./Component/Routes"
 
 class App extends Component {
   constructor() {
@@ -72,32 +73,37 @@ class App extends Component {
       )
       .then((response) => {
         const url = window.URL.createObjectURL(new Blob([response.data], { type: "application/pdf" }));
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', 'file.pdf'); 
-            document.body.appendChild(link);
-            link.click();
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'file.pdf');
+        document.body.appendChild(link);
+        link.click();
       })
       .catch((err) => {
         console.log(err);
       });
+    // <NavBar></NavBar>
+    //     {!txnId && <FormComponent getOtp={this.getOtp}></FormComponent>}
+    //     {txnId && <Login login={this.login}></Login>}
+    //     {token && (
+    //       <CertificateDownload
+    //         onDownload={this.onDownload}
+    //       ></CertificateDownload>
+    //     )}
+    //     {token && <BeneficiaryDetails token={token}></BeneficiaryDetails>}
+    //     <CenterDetails></CenterDetails> 
   };
 
   render() {
-    const { txnId, token} = this.state;
+    // const { txnId, token } = this.state;
     return (
       <div className="App">
-        <NavBar></NavBar>
-        {!txnId && <FormComponent getOtp={this.getOtp}></FormComponent>}
-        {txnId && <Login login={this.login}></Login>}
-        {token && (
-          <CertificateDownload
-            onDownload={this.onDownload}
-          ></CertificateDownload>
-        )}
-        {token && <BeneficiaryDetails token={token}></BeneficiaryDetails>}
-        <CenterDetails></CenterDetails>
+        <React.Fragment>
+          <Routes />
+        </React.Fragment>
       </div>
+
+
     );
   }
 }
