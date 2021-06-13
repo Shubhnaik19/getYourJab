@@ -1,15 +1,16 @@
 @import './styles/forms';
 
 body{
-    background: rgb(6,20,85);
-    background: linear-gradient(0deg, rgba(6,20,85,1) 0%, rgba(118,146,186,1) 100%);
-    color: white;
+    background: rgb(255, 255, 255);
+    // background: linear-gradient(0deg, rgba(6,20,85,1) 0%, rgba(118,146,186,1) 100%);
+    // color: white;
     height: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
 h1{
+    color: black;
     font-size: 1.6rem;
 }
 
