@@ -6,7 +6,7 @@ class NavBar extends Component {
         return (
             <div className="navbar">
                 <h1> Get Your Jab</h1>
-                <ul className ="navbar">
+                <ul className ="navbar-nav">
                     <li className="navbar-item">
                         <div className="link">
                         Home
