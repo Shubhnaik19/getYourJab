@@ -19,18 +19,18 @@ class NavBar extends Component {
                     Get Jabbed
                 </h1>
                 <ul className="navbar-nav">
-                    <li className="navbar-item">
-                        <div className="link" onClick={() => { this.props.history.push('/') }}>
+                    <li className="navbar-item" onClick={() => { this.props.history.push('/') }}>
+                        <div className="link">
                             Home
                         </div>
                     </li>
-                    <li className="navbar-item">
-                        <div className="link" onClick={() => { this.props.history.push('/searchCenter') }}>
+                    <li className="navbar-item" onClick={() => { this.props.history.push('/searchCenter') }}>
+                        <div className="link" >
                             Slots
                         </div>
                     </li>
-                    <li className="navbar-item">
-                        <div className="link" onClick={() => { this.props.history.push('login') }}>
+                    <li className="navbar-item" onClick={() => { this.props.history.push('login') }}>
+                        <div className="link" >
                             Login
                         </div>
                     </li>
