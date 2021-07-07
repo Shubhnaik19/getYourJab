@@ -1,11 +1,15 @@
 import { Component } from 'react';
+import Syringe from '../assets/syringe.png';
 
 class NavBar extends Component {
     state = {  }
     render() {
         return (
             <div className="navbar">
-                <h1> Get Your Jab</h1>
+                <img src={Syringe}/>
+                <h1 className="heading">
+                Get Jabbed
+                </h1>
                 <ul className ="navbar-nav">
                     <li className="navbar-item">
                         <div className="link">
@@ -17,25 +21,7 @@ class NavBar extends Component {
                     <div className="link">
                         Login
                         </div>
-                    </li>
-
-                    <li className="navbar-item">
-                    <div className="link">
-                        Career
-                        </div>
-                    </li>
-
-                    <li className="navbar-item">
-                    <div className="link">
-                        About
-                        </div>
-                    </li>
-
-                    <li className="navbar-item">
-                    <div className="link">
-                        Contact
-                        </div>
-                    </li>
+                    </li>                  
                 </ul>
             </div>
         );
