@@ -2,8 +2,8 @@ import { Component } from 'react';
 import "../_App.scss";
 import  NavBar from './NavBar';
 import Syringe from '../assets/doctor.svg';
-import particlesJS from 'particles.js'
-
+// import particlesJS from 'particles.js'
+// import CeterDetails from './centerDetails' 
 
 class LandingComponent extends Component {
     state = {}
@@ -19,6 +19,7 @@ class LandingComponent extends Component {
             
             <div className="centerStyle" >
                 <NavBar></NavBar>
+                {/* <CeterDetails /> */}
                 <div className="about">
                     <div className="aboutSection">
                     <h1>

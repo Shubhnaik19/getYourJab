@@ -1,11 +1,11 @@
 import { Component } from 'react';
 
 
-class center extends Component {
+class Center extends Component {
     state = {  }
     render() {
         return (
-            <div className="centerStyle">
+            <div className="CenterStyle">
                 <h1>Center Name : {this.props.center.name}</h1>
                 <h3>Dose Available :{this.props.center.available_capacity}</h3>
                 {console.log(this.props.center.name)}
@@ -15,4 +15,4 @@ class center extends Component {
 }
 
 
-export default center;
+export default Center;
