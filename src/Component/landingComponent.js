@@ -1,18 +1,41 @@
 import { Component } from 'react';
+import "../_App.scss";
+import  NavBar from './NavBar';
+import Syringe from '../assets/doctor.svg';
+import particlesJS from 'particles.js'
 
 
 class LandingComponent extends Component {
     state = {}
+
+    // componentDidMount(){
+    // particlesJS.load('particles-js', 'assets/particles.json', function() {
+    //     console.log('callback - particles.js config loaded');
+    //   });
+    // }
+
     render() {
         return (
+            
             <div className="centerStyle" >
-                <h1 >GET YOUR JAB TODAY!</h1>
-                <h3>Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                </h3>
+                <NavBar></NavBar>
+                <div className="about">
+                    <div className="aboutSection">
+                    <h1>
+                    This is site to get info about <br/>vaccination centers
+                    </h1>
+                </div>
+             <div className="gradient">
+                <img src={Syringe} alt=""/>
             </div>
+            </div>
+            <footer className="footer">
+                @Shubham naik 21-22
+            </footer>
+            </div>
+            
         );
     }
 }
-export default LandingComponent;
+
+export default LandingComponent
