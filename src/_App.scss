@@ -1,14 +1,15 @@
 @import './styles/forms';
 
 body{
-    background: rgb(255, 255, 255);
+    background: rgb(252, 249, 249);
     // background: linear-gradient(0deg, rgba(6,20,85,1) 0%, rgba(118,146,186,1) 100%);
     // color: white;
-    background-image: url('./assets/arasur0jjdbqabgl69xr.png');
+    // background-image: url('./assets/arasur0jjdbqabgl69xr.png');
     background-blend-mode: difference;
     height: 100%;
     background-repeat: repeat;
     background-attachment: fixed;
+    font-family: "Syncopate", "Courier New", monospace;     
 }
 
 h1{
@@ -20,7 +21,7 @@ h1{
     color: white;
     align-items: center;
     display:flex;
-    background: rgb(215, 231, 124);
+    background: #061624;
     height: 3rem;
     justify-content: space-between;
     .heading{
@@ -46,13 +47,13 @@ h1{
             background-color: #ddd;
             border-radius: 20px;
             font-size: 1rem;
-            transform: scale(1);
-            transition: transform .2s, .2s width .2s cubic-bezier(1, -0.16,0 ,1.32);
+            // transform: scale(1);
+            // transition: transform .2s, .2s width .2s cubic-bezier(1, -0.16,0 ,1.32);
         }
     }
 }
         &:hover{
-            height:5rem;
+            // height:5rem;
         }
 }
 
@@ -66,7 +67,7 @@ h1{
         }
     }
 .gradient{
-    height:20rem;
+    // height:20rem;
     width:20rem;
     padding: 0%;
     margin: 20rem 30rem;
@@ -85,16 +86,16 @@ h1{
 @media (max-width:600px){
     margin: 9rem 27rem;
 }
-     img{
-         height: 18rem;
-         width: 20rem;
-          &:hover{
-            height: 26rem;
-            width: 32rem;
-            margin: -1rem -5rem;
-            transition:all 0.3s;
-          }
-     }
+    //  img{
+    //      height: 18rem;
+    //      width: 20rem;
+    //       &:hover{
+    //         height: 26rem;
+    //         width: 32rem;
+    //         margin: -1rem -5rem;
+    //         transition:all 0.3s;
+    //       }
+    //  }
 }
 }
 
@@ -104,7 +105,7 @@ h1{
 
 .footer{
     width: 100%;
-    background-color: rgb(215, 231, 124);
+    // background-color: rgb(215, 231, 124);
     height: 10rem;
     color:white;
     font-size:2rem;
@@ -131,3 +132,18 @@ h1{
         font-size: 50%;
     }
 }
+
+.same-width{
+        width: 16em;
+}
+
+.form-card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    background-color: black;
+}
+.form-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
