@@ -14,7 +14,7 @@ class NavBar extends Component {
     render() {
         return (
             <div className="navbar">
-                <img src={Syringe} />
+                {/* <img src={Syringe} /> */}
                 <h1 className="heading">
                     Get Jabbed
                 </h1>

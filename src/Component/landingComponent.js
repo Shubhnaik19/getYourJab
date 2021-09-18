@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import "../_App.scss";
-import  NavBar from './NavBar';
+import NavBar from './NavBar';
 import Syringe from '../assets/doctor.svg';
 // import particlesJS from 'particles.js'
-// import CeterDetails from './centerDetails' 
+// import CeterDetailsByPincode from './centerDetails' 
 
 class LandingComponent extends Component {
     state = {}
@@ -16,25 +16,24 @@ class LandingComponent extends Component {
 
     render() {
         return (
-            
+
             <div className="centerStyle" >
                 <NavBar></NavBar>
-                {/* <CeterDetails /> */}
+                {/* <CeterDetailsByPincode /> */}
                 <div className="about">
                     <div className="aboutSection">
-                    <h1>
-                    This is site to get info about <br/>vaccination centers
-                    </h1>
+                        <h1>
+                            This is site to get info about <br />vaccination centers
+                        </h1>
+                    </div>
+                    <div className="gradient">
+                        {/* <img src={Syringe} alt=""/> */}
+                    </div>
                 </div>
-             <div className="gradient">
-                <img src={Syringe} alt=""/>
+                <footer className="footer">
+                </footer>
             </div>
-            </div>
-            <footer className="footer">
-                @Shubham naik 21-22
-            </footer>
-            </div>
-            
+
         );
     }
 }

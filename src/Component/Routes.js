@@ -8,7 +8,8 @@ import {
 import LandingComponent from './landingComponent';
 // import LoginForm from './loginForm';
 import FormComponent from './formComponent';
-import CeterDetails from './centerDetails'
+import CeterDetailsByPincode from './CeterDetailsByPincode'
+import GetCenterBy from './GetCenterBy';
 
 class Routes extends Component {
     state = {}
@@ -21,7 +22,7 @@ class Routes extends Component {
                             <FormComponent></FormComponent>
                         </Route>
                         <Route path="/searchCenter">
-                            <CeterDetails />
+                            <GetCenterBy />
                         </Route>
                         <Route path="/users">
                             {/* <Users /> */}

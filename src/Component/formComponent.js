@@ -13,6 +13,8 @@ class FormComponent extends Component {
             phoneNo: "",
             txnId: "",
             Otp: "",
+            token:"",
+
         }
     }
 
@@ -41,14 +43,15 @@ class FormComponent extends Component {
             });
     };
 
-    onDownload = async (e) => {
+    onDownload = (e) => {
         e.preventDefault();
-        const beneficiaryCode = e.target.elements.beneficiaryCode.value;
+        const beneficiaryCode = "85584425547020"
+        // e.target.elements.beneficiaryCode.value;
         const config = {
-            headers: { Authorization: `Bearer ${this.state.token}` },
+            // headers: { Authorization: `Bearer ${this.state.token}`,accept: application/"json", "text/plain" }
         };
         axios
-            .get(
+            .post(
                 `https://cdn-api.co-vin.in/api/v2/registration/certificate/public/download?beneficiary_reference_id=${beneficiaryCode}`,
                 config
             )
@@ -109,6 +112,7 @@ class FormComponent extends Component {
                         <br></br>
                         <Button onClick={(e) => this.login(e)} className="otpButton" variant="contained" disabled={this.state.phoneNo.length < 6}>Login</Button>
                     </form>}
+                    <button onClick={this.onDownload}>download</button>
                 </div>
             </Fragment>
         );
