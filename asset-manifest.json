@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/getYourJab/static/css/main.06c6ab71.chunk.css",
+    "main.js": "/getYourJab/static/js/main.22a0c928.chunk.js",
+    "main.js.map": "/getYourJab/static/js/main.22a0c928.chunk.js.map",
+    "runtime-main.js": "/getYourJab/static/js/runtime-main.7e0c7d0c.js",
+    "runtime-main.js.map": "/getYourJab/static/js/runtime-main.7e0c7d0c.js.map",
+    "static/js/2.4bf42902.chunk.js": "/getYourJab/static/js/2.4bf42902.chunk.js",
+    "static/js/2.4bf42902.chunk.js.map": "/getYourJab/static/js/2.4bf42902.chunk.js.map",
+    "static/js/3.64671140.chunk.js": "/getYourJab/static/js/3.64671140.chunk.js",
+    "static/js/3.64671140.chunk.js.map": "/getYourJab/static/js/3.64671140.chunk.js.map",
+    "index.html": "/getYourJab/index.html",
+    "static/css/main.06c6ab71.chunk.css.map": "/getYourJab/static/css/main.06c6ab71.chunk.css.map",
+    "static/js/2.4bf42902.chunk.js.LICENSE.txt": "/getYourJab/static/js/2.4bf42902.chunk.js.LICENSE.txt",
+    "static/media/doctor.f655e0f5.svg": "/getYourJab/static/media/doctor.f655e0f5.svg",
+    "static/media/syringe.ee719ca3.png": "/getYourJab/static/media/syringe.ee719ca3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7e0c7d0c.js",
+    "static/js/2.4bf42902.chunk.js",
+    "static/css/main.06c6ab71.chunk.css",
+    "static/js/main.22a0c928.chunk.js"
+  ]
+}
